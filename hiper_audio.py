@@ -1,7 +1,7 @@
 from requests_html import HTMLSession
 import csv
 
-url = 'https://www.hiperlibertad.com.ar/tecnologia/tv-y-video'
+url = 'https://www.hiperlibertad.com.ar/tecnologia/audio'
 
 s = HTMLSession()
 
@@ -88,7 +88,7 @@ def get_product(link):
     except:
         descripcion = 'None'
     
-    category = 'TV y video'
+    category = 'Audio'
     
     product = {
         'title': title,
@@ -107,9 +107,10 @@ results = []
 for link in links:
     results.append(get_product(link))
 
-with open('results.csv', 'w', encoding='utf-8', newline='') as file:
+with open('results_audio.csv', 'w', encoding='utf-8', newline='') as file:
     wr = csv.DictWriter(file, fieldnames=results[0].keys(),)
     wr.writeheader()
     wr.writerows(results)
-    
+
+print(len(list(links)))    
 print('End.')

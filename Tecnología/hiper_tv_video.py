@@ -41,6 +41,35 @@ def get_product(link):
             'div:nth-child(3) > h1 > span', first=True).text
     except:
         title = 'None'
+        
+    try:
+        list_price_thousands = r.html.find('body > div.render-container.render-route-store-product >'
+            'div > div.vtex-store__template.bg-base > div > div > div > div:nth-child(3) > div > '
+            'div:nth-child(2) > div > section > div > div > div > div > div > div > div.pr0.items-'
+            'stretch.vtex-flex-layout-0-x-stretchChildrenWidth.flex > div > div:nth-child(5) > div > '
+            'div > div:nth-child(1) > span > span > span > span:nth-child(3)', first=True).text
+        list_price_units = r.html.find('body > div.render-container.render-route-store-product > div >'
+            'div.vtex-store__template.bg-base > div > div > div > div:nth-child(3) > div > '
+            'div:nth-child(2) > div > section > div > div > div > div > div > div > div.pr0.items-'
+            'stretch.vtex-flex-layout-0-x-stretchChildrenWidth.flex > div > div:nth-child(5) > div > '
+            'div > div:nth-child(1) > span > span > span > span:nth-child(5)', first=True).text
+        list_price_decimals = r.html.find('body > div.render-container.render-route-store-product > '
+            'div > div.vtex-store__template.bg-base > div > div > div > div:nth-child(3) > div > '
+            'div:nth-child(2) > div > section > div > div > div > div > div > div > div.pr0.items-'
+            'stretch.vtex-flex-layout-0-x-stretchChildrenWidth.flex > div > div:nth-child(5) > div > '
+            'div > div:nth-child(1) > span > span > span > span.vtex-product-price-1-x-currencyFraction.'
+            'vtex-product-price-1-x-currencyFraction--pdp-list-price', first=True).text
+    except:
+        list_price_thousands = 'none'
+        list_price_units = 'none'
+        list_price_decimals = 'none'
+        
+    try:
+        list_price_integer = int(f"{list_price_thousands}{list_price_units}")
+        list_price = float(f"{list_price_integer}.{list_price_decimals}")
+    except:
+        list_price_integer = 'None'
+        list_price = 'None'
     
     try:
         price_thousands = r.html.find('body > div.render-container.render-route-store-product > '
@@ -92,6 +121,7 @@ def get_product(link):
     
     product = {
         'title': title,
+        'list_price': list_price,
         'price': price,
         'stock': stock,
         'url': link,

@@ -9,7 +9,6 @@ def get_all_links(url, start_page, end_page):
     for x in range(start_page, end_page + 1):
         r = s.get(url + str(x))
         r.html.render(sleep=2)
-        items = r.html.find('.vtex-search-result-3-x-galleryItem')
         products = r.html.xpath('//*[@id="gallery-layout-container"]', first=True)
         links = products.absolute_links
         url_list = list(links)

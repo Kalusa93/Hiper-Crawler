@@ -8,7 +8,6 @@ s = HTMLSession()
 def get_links(url):
     r = s.get(url)
     r.html.render(sleep=2)
-    items = r.html.find('.vtex-search-result-3-x-galleryItem')
     products = r.html.xpath('//*[@id="gallery-layout-container"]', first=True)
     links = products.absolute_links
     url_list = list(links)
@@ -41,6 +40,16 @@ def get_product(link):
             'div:nth-child(3) > h1 > span', first=True).text
     except:
         title = 'None'
+        
+    try:
+        brand = r.html.find('body > div.render-container.render-route-store-product > div > '
+            'div.vtex-store__template.bg-base > div > div > div > div:nth-child(3) > div > '
+            'div:nth-child(2) > div > section > div > div > div > div > div > div > div.pr0.'
+            'items-stretch.vtex-flex-layout-0-x-stretchChildrenWidth.flex > div > '
+            'div:nth-child(2) > div > div > div.pr6.items-stretch.vtex-flex-layout-0-x-'
+            'stretchChildrenWidth.flex > div > span', first=True).text
+    except:
+        brand = 'None'
         
     try:
         list_price_thousands = r.html.find('body > div.render-container.render-route-store-product >'
@@ -106,14 +115,15 @@ def get_product(link):
         price = 'None'
         
     try:
-        descripcion = r.html.find('body > div.render-container.render-route-store-product > '
-                                  'div > div.vtex-store__template.bg-base > div > div > div > '
-                                  'div:nth-child(3) > div > div:nth-child(1) > div > section > '
-                                  'div > div > div > div:nth-child(3) > div > div.vtex-tab-'
-                                  'layout-0-x-contentContainer.vtex-tab-layout-0-x-contentContainer--'
-                                  'pdp-product-info-content.w-100 > div > div.vtex-store-components-3-'
-                                  'x-productDescriptionContainer > div > div > div.vtex-store-components-'
-                                  '3-x-content.h-auto', first=True).text
+        descripcion = r.html.find('body > div.render-container.render-route-store-product > div > '
+            'div.vtex-store__template.bg-base > div > div > div > div:nth-child(3) > div > '
+            'div:nth-child(2) > nav > ul > li.vtex-menu-2-x-menuItem.vtex-menu-2-x-menuItem--pdp-'
+            'description-item.list.vtex-menu-2-x-menuItem.vtex-menu-2-x-menuItem--pdp-description-'
+            'item.vtex-menu-2-x-menuItem--isOpen.vtex-menu-2-x-menuItem--pdp-description-item--isOpen > '
+            'div.overflow-hidden > section > div.vtex-store-components-3-x-productDescriptionContainer.'
+            'vtex-store-components-3-x-productDescriptionContainer--pdp-description-mobile > div > div > '
+            'div.vtex-store-components-3-x-content.vtex-store-components-3-x-content--pdp-description-'
+            'mobile.h-auto > div', first=True).text
     except:
         descripcion = 'None'
     
@@ -121,6 +131,7 @@ def get_product(link):
     
     product = {
         'title': title,
+        'brand': brand,
         'list_price': list_price,
         'price': price,
         'stock': stock,
@@ -142,4 +153,5 @@ with open('results.csv', 'w', encoding='utf-8', newline='') as file:
     wr.writeheader()
     wr.writerows(results)
     
+print("Hay un total de "+ str(len(get_links(url))) + " productos")
 print('End.')

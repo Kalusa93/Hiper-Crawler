@@ -1,17 +1,17 @@
-title,list_price,price,stock,url,category
-"CABLE HDMI 360 ONEBOX 1,8 Mts",13809.0,None,In Stock,https://www.hiperlibertad.com.ar/cable-hdmi-360-onebox-1-8-mts/p,TV y video
-SOPORTE DE TV ONEBOX OB-F24 (23 A 43 PULGADAS),13179.0,10543.2,In Stock,https://www.hiperlibertad.com.ar/soporte-de-tv-onebox-ob-f24-23-a-43-pulgadas/p,TV y video
-Smart Tv Led 32 AOC 32S5295/77G,None,None,In Stock,https://www.hiperlibertad.com.ar/smart-tv-led-32-aoc-32s5295-77g/p,TV y video
-SMART TV LED ANDROID CROWN MUSTANG 60 PULGADAS 4K UHD CM-6XST,None,318999.0,In Stock,https://www.hiperlibertad.com.ar/smart-tv-led-android-crown-mustang-60-pulgadas-4k-uhd-cm-6xst/p,TV y video
-Cable de audio y video RCA,3039.0,None,In Stock,https://www.hiperlibertad.com.ar/cable-de-audio-y-video-rca/p,TV y video
-Soporte para TV de doble brazo SPL-780e,103339.0,72337.3,In Stock,https://www.hiperlibertad.com.ar/soporte-para-tv-de-doble-brazo-spl-780e/p,TV y video
-"Soporte de pared para reproductor de DVD, Blu-Ray y consola de juegos SPL-970a",21239.0,14902.99,In Stock,https://www.hiperlibertad.com.ar/soporte-de-pared-para-reproductor-de-dvd-blu-ray-y-consola-de-juegos-spl-970a/p,TV y video
-PACK ANTENA DIRECTV 0.60 FULL,None,5999.0,In Stock,https://www.hiperlibertad.com.ar/kit-antena-directv-prepago-60-cm/p,TV y video
-"SMART TV PHILIPS 43"" PULGADAS 4K 43PUD7407",230999.0,218999.0,In Stock,https://www.hiperlibertad.com.ar/smart-tv-philips-43-pulgadas-4k-43pud7407/p,TV y video
-SMART TV PHILIPS ANDROID 43 PULGADAS FHD 43PFD6917/77,212599.0,184999.0,In Stock,https://www.hiperlibertad.com.ar/smart-tv-philips-andriod-43-pulgadas-fhd-43pfd6917-77/p,TV y video
-Soporte para TV fijo con inclinación SPL-695i,36029.0,25220.3,In Stock,https://www.hiperlibertad.com.ar/soporte-para-tv-fijo-con-inclinacion-spl-695i/p,TV y video
-TV LED PHILIPS 24 PULGADAS HD 24PHD5565/77,None,122129.0,In Stock,https://www.hiperlibertad.com.ar/tv-led-philips-24-pulgadas-hd-24phd5565-77/p,TV y video
-SMART TV ANDROID PHILIPS 55 PULGADAS 4K UHD 55PUD7406/77,None,313999.0,In Stock,https://www.hiperlibertad.com.ar/smart-55-philips-55pud7406-77/p,TV y video
-SMART TV 50 PULGADAS TCL GOOGLE 4K L50P735,None,239999.0,In Stock,https://www.hiperlibertad.com.ar/smart-tv-50-pulgadas-tcl-google-4k-l50p735/p,TV y video
-SOPORTE PARA TV NAKAN SPL375E 26 A 60 PULGADAS,56349.0,None,In Stock,https://www.hiperlibertad.com.ar/soporte-para-tv-nakan-spl375e-26-a-60-pulgadas/p,TV y video
-SMART TV AOC 50 PULGADAS 4K 50U6295/77G,None,217839.0,In Stock,https://www.hiperlibertad.com.ar/smart-tv-aoc-50-pulgadas-4k-50u6295-77g/p,TV y video
+title,brand,list_price,price,stock,url,category
+Cable de audio y video RCA,General Electric,3039.0,2127.3,In Stock,https://www.hiperlibertad.com.ar/cable-de-audio-y-video-rca/p,TV y video
+Soporte para TV de doble brazo SPL-780e,Nakan,103339.0,72337.3,In Stock,https://www.hiperlibertad.com.ar/soporte-para-tv-de-doble-brazo-spl-780e/p,TV y video
+SMART TV ANDROID PHILIPS 55 PULGADAS 4K UHD 55PUD7406/77,Philips,None,313999.0,In Stock,https://www.hiperlibertad.com.ar/smart-55-philips-55pud7406-77/p,TV y video
+SMART TV AOC 50 PULGADAS 4K 50U6295/77G,AOC,None,217839.0,In Stock,https://www.hiperlibertad.com.ar/smart-tv-aoc-50-pulgadas-4k-50u6295-77g/p,TV y video
+SMART TV 50 PULGADAS TCL GOOGLE 4K L50P735,TCL,None,239999.0,In Stock,https://www.hiperlibertad.com.ar/smart-tv-50-pulgadas-tcl-google-4k-l50p735/p,TV y video
+SOPORTE PARA TV NAKAN SPL375E 26 A 60 PULGADAS,Nakan,56349.0,39444.3,In Stock,https://www.hiperlibertad.com.ar/soporte-para-tv-nakan-spl375e-26-a-60-pulgadas/p,TV y video
+"Soporte de pared para reproductor de DVD, Blu-Ray y consola de juegos SPL-970a",Nakan,21239.0,14902.99,In Stock,https://www.hiperlibertad.com.ar/soporte-de-pared-para-reproductor-de-dvd-blu-ray-y-consola-de-juegos-spl-970a/p,TV y video
+Soporte para TV fijo con inclinación SPL-695i,Nakan,36029.0,25220.3,In Stock,https://www.hiperlibertad.com.ar/soporte-para-tv-fijo-con-inclinacion-spl-695i/p,TV y video
+"CABLE HDMI 360 ONEBOX 1,8 Mts",One Box,13809.0,11047.2,In Stock,https://www.hiperlibertad.com.ar/cable-hdmi-360-onebox-1-8-mts/p,TV y video
+SMART TV PHILIPS ANDROID 43 PULGADAS FHD 43PFD6917/77,Philips,212599.0,184999.0,In Stock,https://www.hiperlibertad.com.ar/smart-tv-philips-andriod-43-pulgadas-fhd-43pfd6917-77/p,TV y video
+Smart Tv Led 32 AOC 32S5295/77G,AOC,None,136679.0,In Stock,https://www.hiperlibertad.com.ar/smart-tv-led-32-aoc-32s5295-77g/p,TV y video
+SOPORTE DE TV ONEBOX OB-F24 (23 A 43 PULGADAS),One Box,13179.0,10543.2,In Stock,https://www.hiperlibertad.com.ar/soporte-de-tv-onebox-ob-f24-23-a-43-pulgadas/p,TV y video
+SMART TV LED ANDROID CROWN MUSTANG 60 PULGADAS 4K UHD CM-6XST,Mir,None,318999.0,In Stock,https://www.hiperlibertad.com.ar/smart-tv-led-android-crown-mustang-60-pulgadas-4k-uhd-cm-6xst/p,TV y video
+TV LED PHILIPS 24 PULGADAS HD 24PHD5565/77,Philips,None,122129.0,In Stock,https://www.hiperlibertad.com.ar/tv-led-philips-24-pulgadas-hd-24phd5565-77/p,TV y video
+"SMART TV PHILIPS 43"" PULGADAS 4K 43PUD7407",Philips,230999.0,218999.0,In Stock,https://www.hiperlibertad.com.ar/smart-tv-philips-43-pulgadas-4k-43pud7407/p,TV y video
+PACK ANTENA DIRECTV 0.60 FULL,DirecTV,None,5999.0,In Stock,https://www.hiperlibertad.com.ar/kit-antena-directv-prepago-60-cm/p,TV y video

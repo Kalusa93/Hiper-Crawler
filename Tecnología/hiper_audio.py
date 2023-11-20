@@ -63,6 +63,16 @@ def get_product(link):
             'div:nth-child(3) > h1 > span', first=True).text
     except:
         title = 'None'
+        
+    try:
+        brand = r.html.find('body > div.render-container.render-route-store-product > div > '
+            'div.vtex-store__template.bg-base > div > div > div > div:nth-child(3) > div > '
+            'div:nth-child(2) > div > section > div > div > div > div > div > div > div.pr0.'
+            'items-stretch.vtex-flex-layout-0-x-stretchChildrenWidth.flex > div > '
+            'div:nth-child(2) > div > div > div.pr6.items-stretch.vtex-flex-layout-0-x-'
+            'stretchChildrenWidth.flex > div > span', first=True).text
+    except:
+        brand = 'None'
     
     try:
         price_thousands = r.html.find('body > div.render-container.render-route-store-product > '
@@ -114,6 +124,7 @@ def get_product(link):
     
     product = {
         'title': title,
+        'brand': brand,
         'list_price': list_price,
         'price': price,
         'stock': stock,

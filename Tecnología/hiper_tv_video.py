@@ -1,8 +1,14 @@
 from requests_html import HTMLSession
+from configparser import ConfigParser
 import threading
 import csv
 
-url = 'https://www.hiperlibertad.com.ar/tecnologia/tv-y-video'
+config = ConfigParser()
+config.read("branch_config.ini")
+
+branch = input("Ingrese el nro de sucursal \n")
+
+url = 'https://www.hiperlibertad.com.ar/tecnologia/tv-y-video' + "?sc=" + branch
 
 s = HTMLSession()
 
@@ -18,14 +24,6 @@ def get_links(url):
 def get_product(link):
     r = s.get(link)
     r.html.render(sleep=2)
-    
-    """ try:
-        list_price_thousands = r.html.find('body > div.render-container.render-route-store-product > div > div.vtex-store__template.bg-base > '
-                                           'div > div > div > div:nth-child(3) > div > div:nth-child(1) > div > section > div > div > div > '
-                                           'div:nth-child(2) > div > div > div.pr0.items-stretch.vtex-flex-layout-0-x-stretchChildrenWidth.flex > '
-                                           'div > div:nth-child(5) > span > span > span > span:nth-child(3)', first=True).text
-    except:
-        list_price_thousands = 'none' """
     
     if r.html.find('div.vtex-button__label.flex.items-center.justify-center.h-100.ph6.w-100.border-box'):
         stock = 'In Stock'
@@ -137,7 +135,8 @@ def get_product(link):
         'price': price,
         'stock': stock,
         'url': link,
-        'category': category
+        'category': category,
+        'branch_id': branch
     }
         
     print(product)
@@ -146,18 +145,18 @@ def get_product(link):
 links = get_links(url)
 results = []
 
-'''for link in links:
-    results.append(get_product(link))'''
+for link in links:
+    results.append(get_product(link))
 
-def scraper():
+'''def scraper():
     for link in links:
         results.append(get_product(link))   
 
 scraper()
 for _ in range(8):
-    threading.Thread(target=get_product).start()
+    threading.Thread(target=get_product).start()'''
 
-with open('results.csv', 'w', encoding='utf-8', newline='') as file:
+with open('results_tv_video.csv', 'w', encoding='utf-8', newline='') as file:
     wr = csv.DictWriter(file, fieldnames=results[0].keys(),)
     wr.writeheader()
     wr.writerows(results)

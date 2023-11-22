@@ -1,7 +1,14 @@
 from requests_html import HTMLSession
+from configparser import ConfigParser
+import threading
 import csv
 
-url = 'https://www.hiperlibertad.com.ar/tecnologia/smartwatch'
+config = ConfigParser()
+config.read("branch_config.ini")
+
+branch = input("Ingrese el nro de sucursal \n")
+
+url = 'https://www.hiperlibertad.com.ar/tecnologia/smartwatch' + "?sc=" + branch
 
 s = HTMLSession()
 
@@ -136,7 +143,8 @@ def get_product(link):
         'price': price,
         'stock': stock,
         'url': link,
-        'category': category
+        'category': category,
+        'branch_id': branch
     }
         
     print(product)

@@ -1,4 +1,5 @@
 from requests_html import HTMLSession
+import threading
 import csv
 
 url = 'https://www.hiperlibertad.com.ar/tecnologia/tv-y-video'
@@ -145,8 +146,16 @@ def get_product(link):
 links = get_links(url)
 results = []
 
-for link in links:
-    results.append(get_product(link))
+'''for link in links:
+    results.append(get_product(link))'''
+
+def scraper():
+    for link in links:
+        results.append(get_product(link))   
+
+scraper()
+for _ in range(8):
+    threading.Thread(target=get_product).start()
 
 with open('results.csv', 'w', encoding='utf-8', newline='') as file:
     wr = csv.DictWriter(file, fieldnames=results[0].keys(),)

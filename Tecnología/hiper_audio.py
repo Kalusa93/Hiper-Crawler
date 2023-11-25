@@ -1,7 +1,14 @@
 from requests_html import HTMLSession
+from configparser import ConfigParser
+import threading
 import csv
 
-url = 'https://www.hiperlibertad.com.ar/tecnologia/audio?page='
+config = ConfigParser()
+config.read("branch_config.ini")
+
+branch = input("Ingrese el nro de sucursal \n")
+
+url = 'https://www.hiperlibertad.com.ar/tecnologia/audio' + "?sc=" + branch + "&page="
 
 s = HTMLSession()
 def get_all_links(url, start_page, end_page):
@@ -129,13 +136,14 @@ def get_product(link):
         'price': price,
         'stock': stock,
         'url': link,
-        'category': category
+        'category': category,
+        'branch_id': branch
     }
         
     print(product)
     return product
 
-links = get_all_links(url, 1, 2)
+links = get_all_links(url, 1, 1)
 results = []
 
 for link in links:
@@ -147,4 +155,4 @@ with open('results_audio.csv', 'w', encoding='utf-8', newline='') as file:
     wr.writerows(results)
  
 print('End.')
-print(len(get_all_links(url, 1, 2)))
+print(len(get_all_links(url, 1, 1)))

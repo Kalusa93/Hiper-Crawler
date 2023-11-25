@@ -8,56 +8,24 @@ config.read("branch_config.ini")
 
 branch = input("Ingrese el nro de sucursal \n")
 
-url = 'https://www.hiperlibertad.com.ar/tecnologia/videojuegos' + "?sc=" + branch
+url = 'https://www.hiperlibertad.com.ar/tecnologia/celulares-y-tablets' + "?sc=" + branch + "&page="
 
 s = HTMLSession()
-
-def get_links(url):
-    r = s.get(url)
-    r.html.render(sleep=2)
-    items = r.html.find('.vtex-search-result-3-x-galleryItem')
-    products = r.html.xpath('//*[@id="gallery-layout-container"]', first=True)
-    links = products.absolute_links
-    url_list = list(links)
+def get_all_links(url, start_page, end_page):
+    all_links = []
+    for x in range(start_page, end_page + 1):
+        r = s.get(url + str(x))
+        r.html.render(sleep=2)
+        products = r.html.xpath('//*[@id="gallery-layout-container"]', first=True)
+        links = products.absolute_links
+        url_list = list(links)
+        all_links = all_links + url_list
     
-    return url_list
+    return all_links
 
 def get_product(link):
     r = s.get(link)
     r.html.render(sleep=2)
-    
-    """ try:
-        list_price_thousands = r.html.find('body > div.render-container.render-route-store-product > div > div.vtex-store__template.bg-base > '
-                                           'div > div > div > div:nth-child(3) > div > div:nth-child(1) > div > section > div > div > div > '
-                                           'div:nth-child(2) > div > div > div.pr0.items-stretch.vtex-flex-layout-0-x-stretchChildrenWidth.flex > '
-                                           'div > div:nth-child(5) > span > span > span > span:nth-child(3)', first=True).text
-    except:
-        list_price_thousands = 'none' """
-    
-    if r.html.find('div.vtex-button__label.flex.items-center.justify-center.h-100.ph6.w-100.border-box'):
-        stock = 'In Stock'
-    else:
-        stock = 'Out of stock'
-    
-    try:
-        title = r.html.find('body > div.render-container.render-route-store-product > '
-            'div > div.vtex-store__template.bg-base > div > div > div > '
-            'div:nth-child(3) > div > div:nth-child(2) > div > section > '
-            'div > div > div > div > div > div > div.pr0.items-stretch.'
-            'vtex-flex-layout-0-x-stretchChildrenWidth.flex > div > '
-            'div:nth-child(3) > h1 > span', first=True).text
-    except:
-        title = 'None'
-        
-    try:
-        brand = r.html.find('body > div.render-container.render-route-store-product > div > '
-            'div.vtex-store__template.bg-base > div > div > div > div:nth-child(3) > div > '
-            'div:nth-child(2) > div > section > div > div > div > div > div > div > div.pr0.'
-            'items-stretch.vtex-flex-layout-0-x-stretchChildrenWidth.flex > div > '
-            'div:nth-child(2) > div > div > div.pr6.items-stretch.vtex-flex-layout-0-x-'
-            'stretchChildrenWidth.flex > div > span', first=True).text
-    except:
-        brand = 'None'
         
     try:
         list_price_thousands = r.html.find('body > div.render-container.render-route-store-product >'
@@ -87,6 +55,31 @@ def get_product(link):
     except:
         list_price_integer = 'None'
         list_price = 'None'
+    
+    if r.html.find('div.vtex-button__label.flex.items-center.justify-center.h-100.ph6.w-100.border-box'):
+        stock = 'In Stock'
+    else:
+        stock = 'Out of stock'
+    
+    try:
+        title = r.html.find('body > div.render-container.render-route-store-product > '
+            'div > div.vtex-store__template.bg-base > div > div > div > '
+            'div:nth-child(3) > div > div:nth-child(2) > div > section > '
+            'div > div > div > div > div > div > div.pr0.items-stretch.'
+            'vtex-flex-layout-0-x-stretchChildrenWidth.flex > div > '
+            'div:nth-child(3) > h1 > span', first=True).text
+    except:
+        title = 'None'
+        
+    try:
+        brand = r.html.find('body > div.render-container.render-route-store-product > div > '
+            'div.vtex-store__template.bg-base > div > div > div > div:nth-child(3) > div > '
+            'div:nth-child(2) > div > section > div > div > div > div > div > div > div.pr0.'
+            'items-stretch.vtex-flex-layout-0-x-stretchChildrenWidth.flex > div > '
+            'div:nth-child(2) > div > div > div.pr6.items-stretch.vtex-flex-layout-0-x-'
+            'stretchChildrenWidth.flex > div > span', first=True).text
+    except:
+        brand = 'None'
     
     try:
         price_thousands = r.html.find('body > div.render-container.render-route-store-product > '
@@ -124,17 +117,17 @@ def get_product(link):
         
     try:
         descripcion = r.html.find('body > div.render-container.render-route-store-product > '
-                                  'div > div.vtex-store__template.bg-base > div > div > div > '
-                                  'div:nth-child(3) > div > div:nth-child(1) > div > section > '
-                                  'div > div > div > div:nth-child(3) > div > div.vtex-tab-'
-                                  'layout-0-x-contentContainer.vtex-tab-layout-0-x-contentContainer--'
-                                  'pdp-product-info-content.w-100 > div > div.vtex-store-components-3-'
-                                  'x-productDescriptionContainer > div > div > div.vtex-store-components-'
-                                  '3-x-content.h-auto', first=True).text
+                                'div > div.vtex-store__template.bg-base > div > div > div > '
+                                'div:nth-child(3) > div > div:nth-child(1) > div > section > '
+                                'div > div > div > div:nth-child(3) > div > div.vtex-tab-'
+                                'layout-0-x-contentContainer.vtex-tab-layout-0-x-contentContainer--'
+                                'pdp-product-info-content.w-100 > div > div.vtex-store-components-3-'
+                                'x-productDescriptionContainer > div > div > div.vtex-store-components-'
+                                '3-x-content.h-auto', first=True).text
     except:
         descripcion = 'None'
     
-    category = 'Videojuegos'
+    category = 'Audio'
     
     product = {
         'title': title,
@@ -150,15 +143,16 @@ def get_product(link):
     print(product)
     return product
 
-links = get_links(url)
+links = get_all_links(url, 1, 1)
 results = []
 
 for link in links:
     results.append(get_product(link))
 
-with open('results_videojuegos.csv', 'w', encoding='utf-8', newline='') as file:
+with open('results_cel_tablet.csv', 'w', encoding='utf-8', newline='') as file:
     wr = csv.DictWriter(file, fieldnames=results[0].keys(),)
     wr.writeheader()
     wr.writerows(results)
-    
+ 
 print('End.')
+print(len(get_all_links(url, 1, 1)))

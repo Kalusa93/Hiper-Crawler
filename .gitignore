@@ -1,6 +1,1 @@
-results_tv_video.csv
-results_informatica.csv
-results_audio.csv
-results_videojuegos.csv
-results_smartwatch.csv
-results_cel_tablet.csv
+*.csv

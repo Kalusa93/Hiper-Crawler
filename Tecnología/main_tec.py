@@ -2,19 +2,19 @@ from subprocess import call
 
 def open_py_file():
     try:
-        call(["python", "hiper_tv_video.py"])
+        call(["python", "tv_video.py"])
     except:
         pass
     try:
-        call(["python", "hiper_videojuegos.py"])
+        call(["python", "videojuegos.py"])
     except:
         pass
     try:
-        call(["python", "hiper_informatica.py"])
+        call(["python", "informatica.py"])
     except:
         pass
     try:
-        call(["python", "hiper_smartwatch.py"])
+        call(["python", "smartwatch.py"])
     except:
         pass
     try:
@@ -22,13 +22,13 @@ def open_py_file():
     except:
         pass
     try:
-        call(["python", "hiper_audio.py"])
+        call(["python", "audio.py"])
     except:
         pass
     
 open_py_file()
 
 def merge_csv():
-    call(["python", "csv_joiner.py"])
+    call(["python", "csv/csv_joiner.py"])
     
 merge_csv()

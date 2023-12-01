@@ -141,7 +141,7 @@ scraper()
 for _ in range(8):
     threading.Thread(target=get_product).start()'''
 
-with open('results_tv_video.csv', 'w', encoding='utf-8', newline='') as file:
+with open('tv_video.csv', 'w', encoding='utf-8', newline='') as file:
     wr = csv.DictWriter(file, fieldnames=results[0].keys(),)
     wr.writeheader()
     wr.writerows(results)

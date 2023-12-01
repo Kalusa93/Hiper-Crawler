@@ -8,7 +8,7 @@ config.read("branch_config.ini")
 
 branch = input("Ingrese el nro de sucursal \n")
 
-url = 'https://www.hiperlibertad.com.ar/tecnologia/informatica' + "?sc=" + branch
+url = 'https://www.hiperlibertad.com.ar/tecnologia/smartwatch' + "?sc=" + branch
 
 s = HTMLSession()
 
@@ -58,7 +58,7 @@ def get_product(link):
             'stretchChildrenWidth.flex > div > span', first=True).text
     except:
         brand = 'None'
-    
+        
     try:
         list_price_thousands = r.html.find('body > div.render-container.render-route-store-product >'
             'div > div.vtex-store__template.bg-base > div > div > div > div:nth-child(3) > div > '
@@ -134,12 +134,12 @@ def get_product(link):
     except:
         descripcion = 'None'
     
-    category = 'Informatica'
+    category = 'Smartwatch'
     
     product = {
         'title': title,
-        'brand': brand,
         'list_price': list_price,
+        'brand': brand,
         'price': price,
         'stock': stock,
         'url': link,
@@ -156,7 +156,7 @@ results = []
 for link in links:
     results.append(get_product(link))
 
-with open('results_informatica.csv', 'w', encoding='utf-8', newline='') as file:
+with open('smartwatch.csv', 'w', encoding='utf-8', newline='') as file:
     wr = csv.DictWriter(file, fieldnames=results[0].keys(),)
     wr.writeheader()
     wr.writerows(results)

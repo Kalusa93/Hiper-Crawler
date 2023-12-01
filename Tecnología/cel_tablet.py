@@ -127,7 +127,7 @@ def get_product(link):
     except:
         descripcion = 'None'
     
-    category = 'Audio'
+    category = 'Cel_tablet'
     
     product = {
         'title': title,
@@ -149,7 +149,7 @@ results = []
 for link in links:
     results.append(get_product(link))
 
-with open('results_cel_tablet.csv', 'w', encoding='utf-8', newline='') as file:
+with open('cel_tablet.csv', 'w', encoding='utf-8', newline='') as file:
     wr = csv.DictWriter(file, fieldnames=results[0].keys(),)
     wr.writeheader()
     wr.writerows(results)

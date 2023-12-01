@@ -1,6 +1,6 @@
 from requests_html import HTMLSession
 from configparser import ConfigParser
-import threading
+import concurrent.futures
 import csv
 
 config = ConfigParser()
@@ -82,12 +82,27 @@ def get_product(link):
         brand = 'None'
     
     try:
-        price_thousands = r.html.find('.vtex-product-price-1-x-currencyInteger.vtex-product'
-            '-price-1-x-currencyInteger--pdp-selling-price:nth-child(3)', first=True).text
-        price_units = r.html.find('.vtex-product-price-1-x-currencyInteger.vtex-product-'
-            'price-1-x-currencyInteger--pdp-selling-price:nth-child(5)', first=True).text
-        price_decimal = r.html.find('.vtex-product-price-1-x-currencyFraction.vtex-product-'
-            'price-1-x-currencyFraction--pdp-selling-price', first=True).text
+        price_thousands = r.html.find('body > div.render-container.render-route-store-product > '
+            'div > div.vtex-store__template.bg-base > div > div > div > '
+            'div:nth-child(3) > div > div:nth-child(2) > div > section > '
+            'div > div > div > div > div > div > '
+            'div.pr0.items-stretch.vtex-flex-layout-0-x-stretchChildrenWidth.flex > '
+            'div > div:nth-child(5) > div > div > div:nth-child(2) > span > '
+            'span > span > span:nth-child(3)', first=True).text
+        price_units = r.html.find('body > div.render-container.render-route-store-product > div > '
+            'div.vtex-store__template.bg-base > div > div > div > '
+            'div:nth-child(3) > div > div:nth-child(2) > div > section > '
+            'div > div > div > div > div > div > '
+            'div.pr0.items-stretch.vtex-flex-layout-0-x-stretchChildrenWidth.flex > '
+            'div > div:nth-child(5) > div > div > div:nth-child(2) > span > span > '
+            'span > span:nth-child(5)', first=True).text
+        price_decimal = r.html.find('body > div.render-container.render-route-store-product > div > '
+            'div.vtex-store__template.bg-base > div > div > div > div:nth-child(3) > '
+            'div > div:nth-child(2) > div > section > div > div > div > div > div > '
+            'div > div.pr0.items-stretch.vtex-flex-layout-0-x-stretchChildrenWidth.flex > '
+            'div > div:nth-child(5) > div > div > div:nth-child(2) > span > span > span > '
+            'span.vtex-product-price-1-x-currencyFraction.vtex-product-price-1-x-'
+            'currencyFraction--pdp-selling-price', first=True).text
     except:
         price_thousands = 'None'
         price_units = 'None'
@@ -133,6 +148,9 @@ results = []
 
 for link in links:
     results.append(get_product(link))
+
+with concurrent.futures.ThreadPoolExecutor() as executor:
+    executor.map(get_product, links)
 
 with open('quesos.csv', 'w', encoding='utf-8', newline='') as file:
     wr = csv.DictWriter(file, fieldnames=results[0].keys(),)

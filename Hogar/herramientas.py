@@ -8,7 +8,7 @@ config.read("branch_config.ini")
 
 branch = input("Ingrese el nro de sucursal \n")
 
-url = 'https://www.hiperlibertad.com.ar/hogar/cocina-y-comedor' + "?sc=" + branch + "&page="
+url = 'https://www.hiperlibertad.com.ar/hogar/herramientas-y-mantenimiento' + "?sc=" + branch + "&page="
 
 s = HTMLSession()
 def get_all_links(url, start_page, end_page):
@@ -128,16 +128,16 @@ def get_product(link):
     print(product)
     return product
 
-links = get_all_links(url, 1, 13)
+links = get_all_links(url, 1, 4)
 results = []
 
 for link in links:
     results.append(get_product(link))
 
-with open('results_cocina_comedor.csv', 'w', encoding='utf-8', newline='') as file:
+with open('herramientas.csv', 'w', encoding='utf-8', newline='') as file:
     wr = csv.DictWriter(file, fieldnames=results[0].keys(),)
     wr.writeheader()
     wr.writerows(results)
  
 print('End.')
-print(len(get_all_links(url, 1, 13)))
+print(len(get_all_links(url, 1, 4)))

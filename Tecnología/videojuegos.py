@@ -8,7 +8,7 @@ config.read("branch_config.ini")
 
 branch = input("Ingrese el nro de sucursal \n")
 
-url = 'https://www.hiperlibertad.com.ar/tecnologia/smartwatch' + "?sc=" + branch
+url = 'https://www.hiperlibertad.com.ar/tecnologia/videojuegos' + "?sc=" + branch
 
 s = HTMLSession()
 
@@ -134,12 +134,12 @@ def get_product(link):
     except:
         descripcion = 'None'
     
-    category = 'Smartwatch'
+    category = 'Videojuegos'
     
     product = {
         'title': title,
-        'list_price': list_price,
         'brand': brand,
+        'list_price': list_price,
         'price': price,
         'stock': stock,
         'url': link,
@@ -156,10 +156,9 @@ results = []
 for link in links:
     results.append(get_product(link))
 
-with open('results_smartwatch.csv', 'w', encoding='utf-8', newline='') as file:
+with open('videojuegos.csv', 'w', encoding='utf-8', newline='') as file:
     wr = csv.DictWriter(file, fieldnames=results[0].keys(),)
     wr.writeheader()
     wr.writerows(results)
-
-print(len(list(links)))    
+    
 print('End.')

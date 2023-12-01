@@ -112,7 +112,7 @@ def get_product(link):
     except:
         descripcion = 'None'
     
-    category = 'Audio'
+    category = 'Baño'
     
     product = {
         'title': title,

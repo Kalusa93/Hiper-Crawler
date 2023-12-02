@@ -1,7 +1,7 @@
-title,brand,list_price,price,stock,url,category,branch_id
-VENTILADOR TURBO INDEPLAS DECO PISO NARANJA,Indeplas,24239.0,20603.15,In Stock,https://www.hiperlibertad.com.ar/ventilador-turbo-indeplas-deco-piso-naranja/p,Climatización,12
-CALEFACTOR CALEFACTOR LILIANA CVO-27,LILIANA,None,9559.0,In Stock,https://www.hiperlibertad.com.ar/calef-cuarzo-liliana-cv027/p,Climatización,12
-VENTILADOR DE PIE PEABODY PE-VPD2062,PEABODY,55999.0,47599.15,In Stock,https://www.hiperlibertad.com.ar/ventilador-de-pie-peabody-pe-vpd2062/p,Climatización,12
+title,brand,list_price,price,stock,url,branch_id,category,subcategory
+VENTILADOR TURBO INDEPLAS DECO PISO NARANJA,Indeplas,24239.0,20603.15,In Stock,https://www.hiperlibertad.com.ar/ventilador-turbo-indeplas-deco-piso-naranja/p,12,electrodomesticos,climatizacion
+CALEFACTOR CALEFACTOR LILIANA CVO-27,LILIANA,None,9559.0,In Stock,https://www.hiperlibertad.com.ar/calef-cuarzo-liliana-cv027/p,12,electrodomesticos,climatizacion
+VENTILADOR DE PIE PEABODY PE-VPD2062,PEABODY,55999.0,47599.15,In Stock,https://www.hiperlibertad.com.ar/ventilador-de-pie-peabody-pe-vpd2062/p,12,electrodomesticos,climatizacion
 ESTUFA KEN BROWN 800W KB22,Ken Brown,None,11069.0,In Stock,https://www.hiperlibertad.com.ar/estufa-ken-brown-800w-kb22/p,Climatización,12
 Vitroconvector Eléctrico Peabody PE-VC10N 1000W,PEABODY,None,29999.0,In Stock,https://www.hiperlibertad.com.ar/vitroconvector-el-ctrico-peabody-pe-vc10n-1000w/p,Climatización,12
 VENTILADOR DE TECHO CON LUZ,LILIANA,190000.0,161500.0,In Stock,https://www.hiperlibertad.com.ar/ventilador-techo-liliana-vthm315-c-l-c-c/p,Climatización,12

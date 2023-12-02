@@ -1,5 +1,5 @@
-title,brand,list_price,price,stock,url,category,branch_id
-VENTILADOR TURBO INDEPLAS DECO PISO NARANJA,Indeplas,24239.0,20603.15,In Stock,https://www.hiperlibertad.com.ar/ventilador-turbo-indeplas-deco-piso-naranja/p,Climatización,12
+title,brand,list_price,price,stock,url,branch_id,category,subcategory
+VENTILADOR TURBO INDEPLAS DECO PISO NARANJA,Indeplas,24239.0,20603.15,In Stock,https://www.hiperlibertad.com.ar/ventilador-turbo-indeplas-deco-piso-naranja/p,12,electrodomesticos,climatizacion
 CALEFACTOR CALEFACTOR LILIANA CVO-27,LILIANA,,9559.0,In Stock,https://www.hiperlibertad.com.ar/calef-cuarzo-liliana-cv027/p,Climatización,12
 VENTILADOR DE PIE PEABODY PE-VPD2062,PEABODY,55999.0,47599.15,In Stock,https://www.hiperlibertad.com.ar/ventilador-de-pie-peabody-pe-vpd2062/p,Climatización,12
 ESTUFA KEN BROWN 800W KB22,Ken Brown,,11069.0,In Stock,https://www.hiperlibertad.com.ar/estufa-ken-brown-800w-kb22/p,Climatización,12

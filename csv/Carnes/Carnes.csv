@@ -1,0 +1,43 @@
+title,brand,list_price,price,stock,url,branch_id,category,subcategory
+PECHITO DE CERDO X 1 KG,Frescos,,3499.0,In Stock,https://www.hiperlibertad.com.ar/pechito-de-cerdo-x-1-kg/p,12,carnes,carne-de-cerdo
+COSTELETA DE CERDO x 500 g,Frescos,,3229.0,In Stock,https://www.hiperlibertad.com.ar/costeleta-de-cerdo-x-500-g/p,12,carnes,carne-de-cerdo
+"POLLO FRESCO X UN. (APROX. 2,5KG)",Frescos,,3079.0,In Stock,https://www.hiperlibertad.com.ar/pollo-fresco-x-un-aprox-2-5kg/p,12,carnes,carne-de-pollo
+COSTILLA DE NOVILLITO x 1 kg,Frescos,,5199.0,In Stock,https://www.hiperlibertad.com.ar/costilla-de-novillito-x-1-kg/p,12,carnes,carne-vacuna
+OJO DE BIFE DE NOVILLO x 500 g,Frescos,,3499.0,In Stock,https://www.hiperlibertad.com.ar/ojo-de-bife-de-novillo-x-500-g/p,12,carnes,carne-vacuna
+MILANESA DE NALGA DE NOVILLITO x 500 g,Frescos,,2999.0,In Stock,https://www.hiperlibertad.com.ar/milanesa-de-nalga-de-novillito-x-500-g/p,12,carnes,carne-vacuna
+COSTILLA DE NOVILLO x 1 kg,Frescos,,2199.0,In Stock,https://www.hiperlibertad.com.ar/costilla-de-novillo-x-1-kg/p,12,carnes,carne-vacuna
+BIFE DE CHORIZO DE NOVILLO x 500 g,Frescos,,3499.0,In Stock,https://www.hiperlibertad.com.ar/bife-de-chorizo-de-novillo-x-500-g/p,12,carnes,carne-vacuna
+MATAMBRE DE NOVILLITO x 800g,Frescos,,5799.0,In Stock,https://www.hiperlibertad.com.ar/matambre-de-novillito-x-800g/p,12,carnes,carne-vacuna
+BOCADO SIN HUESO NOVILLITO x 500 g,Frescos,,2659.0,In Stock,https://www.hiperlibertad.com.ar/bocado-sin-hueso-novillito-x-500-g/p,12,carnes,carne-vacuna
+MILANESA DE JAMÓN CUADRADO DE NOVILLO x 500 g,Frescos,,2499.0,In Stock,https://www.hiperlibertad.com.ar/milanesa-de-jamon-cuadrado-de-novillo-x-500-g/p,12,carnes,carne-vacuna
+TAPA DE ASADO DE NOVILLITO x 1 kg,Frescos,,5299.0,In Stock,https://www.hiperlibertad.com.ar/tapa-de-asado-de-novillito-x-1-kg/p,12,carnes,carne-vacuna
+LOMO DE NOVILLITO x 500 g,Frescos,,3459.0,In Stock,https://www.hiperlibertad.com.ar/lomo-de-novillito-x-500-g/p,12,carnes,carne-vacuna
+MILANESA DE JAMÓN CUADRADO DE NOVILLITO x 500 g,Frescos,,2999.0,In Stock,https://www.hiperlibertad.com.ar/milanesa-de-jamon-cuadrado-de-novillito-x-500-g/p,12,carnes,carne-vacuna
+MILANESA DE BOLA DE LOMO DE NOVILLITO x 500 g,Frescos,,2999.0,In Stock,https://www.hiperlibertad.com.ar/milanesa-de-bola-de-lomo-de-novillito-x-500-g/p,12,carnes,carne-vacuna
+MATAMBRE DE NOVILLO x 1 kg,Frescos,,5499.0,In Stock,https://www.hiperlibertad.com.ar/matambre-de-novillo-x-1-kg/p,12,carnes,carne-vacuna
+MILANESA DE BOLA DE LOMO DE NOVILLO  x 500 g,Frescos,,2499.0,In Stock,https://www.hiperlibertad.com.ar/milanesa-de-bola-de-lomo-de-novillo-x-500-g/p,12,carnes,carne-vacuna
+LOMO DE NOVILLO x 500 g,Frescos,,4449.0,In Stock,https://www.hiperlibertad.com.ar/lomo-de-novillo-x-500-g/p,12,carnes,carne-vacuna
+"COMBO ASADO X 2,5 KG",Frescos,,6599.0,In Stock,https://www.hiperlibertad.com.ar/combo-asado-x-2-5kg/p,12,carnes,carne-vacuna
+COLITA DE CUADRIL DE NOVILLO x 1 kg,Frescos,,6599.0,In Stock,https://www.hiperlibertad.com.ar/colita-de-cuadril-de-novillo-x-800g/p,12,carnes,carne-vacuna
+PECETO DE NOVILLO x 500 g,Frescos,,2999.0,In Stock,https://www.hiperlibertad.com.ar/peceto-de-novillo-x-500-g/p,12,carnes,carne-vacuna
+SALCHICHA FRESCA DE CERDO CABAÑA ARGENTINA X 350 GR,Cabaña Argentina,,1699.0,In Stock,https://www.hiperlibertad.com.ar/salchicha-fresca-de-cerdo-caba-a-argentina-x-350-gr/p,12,carnes,embutidos
+CHORIZO FRESCO PALADINI ENV/VACIO 3 UNIDADES X 335 GR,Paladini,,1399.0,In Stock,https://www.hiperlibertad.com.ar/chorizo-paladini-mezcla-al-vacio-x-400-g/p,12,carnes,embutidos
+Chorizo de pollo Tres Arroyos 360Gr,Tres Arroyos,,699.0,In Stock,https://www.hiperlibertad.com.ar/chorizo-de-pollo-tres-arroyos-360gr/p,12,carnes,embutidos
+Chorizo Con Jamon Magret 400Gr,Magret,,1599.0,In Stock,https://www.hiperlibertad.com.ar/chorizo-con-jamon-magret-400gr/p,12,carnes,embutidos
+CHORIZO PARRILLERO BOMBON EV X 435 GR,Frescos,,1799.0,In Stock,https://www.hiperlibertad.com.ar/chorizo-parrillero-bombon-ev-x-435-gr/p,12,carnes,embutidos
+Chorizo Bombon Magret 400Gr,Magret,,1499.0,In Stock,https://www.hiperlibertad.com.ar/chorizo-bombon-magret-400gr/p,12,carnes,embutidos
+Morcilla Vasca Magret 400Gr,Magret,,1299.0,In Stock,https://www.hiperlibertad.com.ar/morcilla-vasca-magret-400gr/p,12,carnes,embutidos
+CHORIZO FRESCO DE CERDO X 435G,Mir,,2499.0,In Stock,https://www.hiperlibertad.com.ar/chorizo-env-vacio-x-un-450-gr/p,12,carnes,embutidos
+Salchicha Parrillera Magret 350Gr,Magret,,1499.0,In Stock,https://www.hiperlibertad.com.ar/salchicha-parrillera-magret-350gr/p,12,carnes,embutidos
+MORCILLA VACIO X 320 GR,Frideza,929.0,743.2,In Stock,https://www.hiperlibertad.com.ar/morcilla-vacio-x-320-gr/p,12,carnes,embutidos
+CHORIZO FRESCO AL VACIO X 320 GR,Frideza,1399.0,1119.2,In Stock,https://www.hiperlibertad.com.ar/chorizo-fresco-al-vacio-x-320-gr/p,12,carnes,embutidos
+CAZUELA DE MARISCOS CONGELADOS X 400 GR,Ocean Blue,,2999.0,In Stock,https://www.hiperlibertad.com.ar/cazuela-de-mariscos-congelados-x-400-gr/p,12,carnes,mariscos
+ANILLA DE CALAMAR REBOZADA X 300 GR,Ocean Blue,,2699.0,In Stock,https://www.hiperlibertad.com.ar/anilla-de-calamar-rebozada-x-300-gr/p,12,carnes,mariscos
+ANILLAS DE CALAMAR NAT X 200 GR,Portobelo,,999.0,In Stock,https://www.hiperlibertad.com.ar/anillas-de-calamar-nat-x-200-gr/p,12,carnes,mariscos
+TENTACULO CALAMAR CONGELADO X 500 GR,Ocean Blue,,2799.0,In Stock,https://www.hiperlibertad.com.ar/tentaculo-calamar-congelado-x-500-gr/p,12,carnes,mariscos
+CAZUELA DE MARISCOS X 200 GR,Portobelo,,999.0,In Stock,https://www.hiperlibertad.com.ar/cazuela-de-mariscos-x-200-gr/p,12,carnes,mariscos
+MEDALLON MERLUZ SABOR CLASICO X 400 GR,Portobelo,,59900.0,In Stock,https://www.hiperlibertad.com.ar/medallon-merluz-sabor-clasico-x-400-gr/p,12,carnes,pescados
+Bastón De Merluza Rabozado X 500 Grs,Frescos,,89900.0,In Stock,https://www.hiperlibertad.com.ar/baston-de-merluza-rabozado-x-500-grs/p,12,carnes,pescados
+MEDALLON MERLUZ CON TOMATE Y QUESO X 400 GR,Portobelo,,69900.0,In Stock,https://www.hiperlibertad.com.ar/medallon-merluz-con-tomate-y-queso-x-400-gr/p,12,carnes,pescados
+CORNALITOS CONGELADOS X 500 GR,Ocean Blue,,1599.0,In Stock,https://www.hiperlibertad.com.ar/cornalitos-congelados-x-500-gr/p,12,carnes,pescados
+MEDALLON MERLUZ CON ESPINACA Y QUESO X 400 GR,Portobelo,,69900.0,In Stock,https://www.hiperlibertad.com.ar/medallon-merluz-con-espinaca-y-queso-x-400-gr/p,12,carnes,pescados

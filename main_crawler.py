@@ -6,15 +6,39 @@ import csv
 config = ConfigParser()
 config.read("branch_config.ini")
 
-branch = input("Ingrese el nro de sucursal \n")
+branch = input("Ingrese el nro de sucursal: ")
 
 categorias = {
     'tecnologia': ['tv-y-video', 'audio', 'informatica', 'celulares-y-tablets', 'videojuegos', 'smartwatch'],
     'electrodomesticos': ['climatizacion', 'pequenos-electrodomesticos', 'lavado', 'cocinas-y-hornos', 'heladeras-y-freezers', 
-                          'hogar-y-limpieza', 'cuidado-personal-y-salud', 'termotanques-y-calefones'],
+        'hogar-y-limpieza', 'cuidado-personal-y-salud', 'termotanques-y-calefones'],
     'hogar': ['muebles-de-interior', 'cocina-y-comedor', 'bano', 'organizacion', 'iluminacion', 'dormitorio',
-              'herramientas-y-mantenimiento', 'deco'],
-    'quesos-y-fiambres': ['quesos', 'fiambres', 'salchichas']
+        'herramientas-y-mantenimiento', 'deco'],
+    'bebidas': ['aperitivos', 'cervezas', 'gaseosas', 'jugos', 'aguas', 'vinos-y-espumantes', 'isotonicas-y-energizantes', 
+        'bebidas-blancas-y-licores'],
+    'almacen': ['aceites-y-vinagres', 'aceitunas-y-encurtidos', 'aderezos', 'arroz-y-legumbres', 'caldos-sopas-y-pure',
+        'conservas', 'desayuno-y-merienda', 'golosinas-y-chocolates', 'harinas', 'sin-tacc', 'panificados',
+        'para-preparar', 'pastas-secas-y-salsas', 'sal-pimienta-y-especias', 'snacks'],
+    'lacteos': ['dulce-de-leche', 'leches', 'cremas', 'yogures', 'mantecas-y-margarinas', 'postres-y-flanes'],
+    'quesos-y-fiambres': ['quesos', 'fiambres', 'salchichas'],
+    'carnes': ['carne-vacuna', 'carne-de-cerdo', 'carne-de-pollo', 'embutidos', 'pescados', 'mariscos'],
+    'frutas-y-verduras': ['frutas', 'verduras', 'huevos', 'legumbres-y-semillas', 'hierbas-aromaticas', 'lena-y-carbon'],
+    'congelados': ['frutas-congeladas', 'verduras-congeladas', 'papas-congeladas', 'comidas-preparadas', 
+        'prefritos-congelados', 'helados-y-postres', 'carnes-y-pollo', 'hamburguesas-y-milanesas'],
+    'pastas-frescas-y-tapas': ['levaduras-y-grasas', 'fideos-y-noquis', 'pastas-rellenas', 'tapas'],
+    'taeq': ['almacen-taeq', 'frutas-y-verduras-taeq', 'congelados-taeq'],
+    'limpieza': ['accesorios-de-limpieza', 'calzado', 'cuidado-de-la-ropa', 'desodorantes-de-ambiente', 'insecticidas',
+        'lavandina', 'limpieza-de-bano', 'limpieza-de-cocina', 'limpieza-de-pisos-y-muebles', 'papeles'],
+    'perfumeria': ['cuidado-capilar', 'cuidado-oral', 'cuidado-personal', 'cuidado-de-la-piel', 
+        'proteccion-femenina', 'proteccion-para-adultos', 'farmacia'],
+    'bebes-y-ninos': ['higiene-y-salud', 'lactancia-y-alimentacion', 'seguridad-del-bebe', 'paseo-del-bebe', 
+        'vehiculos-infantiles', 'muebles-infantiles', 'jugueteria', 'accesorios', 'panales-y-toallitas-humedas'],
+    'vehiculos': ['accesorios-para-automoviles', 'accesorios-para-motos', 'neumaticos'],
+    'mascotas': ['alimentos', 'accesorios-para-mascotas'],
+    'aire-libre-y-jardin': ['camping', 'piletas', 'cuidado-del-jardin', 'muebles-de-exterior', 'asador', 
+        'iluminacion-exterior'],
+    'libreria': ['libreria-y-papeleria'],
+    'deportes': ['fitness', 'bicicletas', 'accesorios-deportivos', 'patinaje']
 }
 
 categorias_claves = list(categorias.keys())

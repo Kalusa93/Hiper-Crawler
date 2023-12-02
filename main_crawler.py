@@ -8,14 +8,39 @@ config.read("branch_config.ini")
 
 branch = input("Ingrese el nro de sucursal \n")
 
-url = 'https://www.hiperlibertad.com.ar/quesos-y-fiambres/fiambres' + "?sc=" + branch + "&page="
+categorias = {
+    'tecnologia': ['tv-y-video', 'audio', 'informatica', 'celulares-y-tablets', 'videojuegos', 'smartwatch'],
+    'electrodomesticos': ['climatizacion', 'pequenos-electrodomesticos', 'lavado', 'cocinas-y-hornos', 'heladeras-y-freezers', 
+                          'hogar-y-limpieza', 'cuidado-personal-y-salud', 'termotanques-y-calefones'],
+    'hogar': ['muebles-de-interior', 'cocina-y-comedor', 'bano', 'organizacion', 'iluminacion', 'dormitorio',
+              'herramientas-y-mantenimiento', 'deco'],
+    'quesos-y-fiambres': ['quesos', 'fiambres', 'salchichas']
+}
+
+categorias_claves = list(categorias.keys())
+
+print(f"Las categorías existentes son {categorias_claves}")
+categoria_ingresada = input("Ingrese una categoría: ")
+
+if categoria_ingresada in categorias:
+    print(f"La categoría '{categoria_ingresada}' contiene las siguientes subcategorías: {categorias[categoria_ingresada]}")
+    subcategoria_ingresada = input("Ingrese una subcategoría: ")
+    if subcategoria_ingresada in categorias[categoria_ingresada]:
+        url = f'https://www.hiperlibertad.com.ar/{categoria_ingresada}/{subcategoria_ingresada}?sc={branch}&page='
+        print(url)
+    else:
+        print(f"Error: La subcategoría '{subcategoria_ingresada}' no existe en la lista.")
+else:
+    print(f"Error: La categoría '{categoria_ingresada}' no existe en la lista.")
+
+pages = int(input("Ingrese la cantidad de páginas de la subcategoría: "))
 
 s = HTMLSession()
 def get_all_links(url, start_page, end_page):
     all_links = []
     for x in range(start_page, end_page + 1):
         r = s.get(url + str(x))
-        r.html.render(sleep=2)
+        r.html.render(sleep=2, timeout=30)
         products = r.html.xpath('//*[@id="gallery-layout-container"]', first=True)
         links = products.absolute_links
         url_list = list(links)
@@ -127,8 +152,6 @@ def get_product(link):
     except:
         descripcion = 'None'
     
-    category = 'Fiambres'
-    
     product = {
         'title': title,
         'brand': brand,
@@ -136,14 +159,15 @@ def get_product(link):
         'price': price,
         'stock': stock,
         'url': link,
-        'category': category,
-        'branch_id': branch
+        'branch_id': branch,
+        'category': categoria_ingresada,
+        'subcategory': subcategoria_ingresada
     }
         
     print(product)
     return product
 
-links = get_all_links(url, 1, 2)
+links = get_all_links(url, 1, pages)
 results = []
 
 for link in links:
@@ -152,10 +176,10 @@ for link in links:
 with concurrent.futures.ThreadPoolExecutor() as executor:
     executor.map(get_product, links)
 
-with open('fiambres.csv', 'w', encoding='utf-8', newline='') as file:
+with open(f'{subcategoria_ingresada}.csv', 'w', encoding='utf-8', newline='') as file:
     wr = csv.DictWriter(file, fieldnames=results[0].keys(),)
     wr.writeheader()
     wr.writerows(results)
  
 print('End.')
-print(len(get_all_links(url, 1, 2)))
+print(len(get_all_links(url, 1, pages)))

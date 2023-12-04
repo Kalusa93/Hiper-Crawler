@@ -98,12 +98,28 @@ def get_product(link):
         list_price_units = 'none'
         list_price_decimals = 'none'
         
-    try:
-        list_price_integer = int(f"{list_price_thousands}{list_price_units}")
-        list_price = float(f"{list_price_integer}.{list_price_decimals}")
+    #Chequeo si existe integer-list-price 7th child (precio > 999.999)
+    try: 
+        list_price_u = r.html.find('.vtex-product-price-1-x-currencyInteger.'
+            'vtex-product-price-1-x-currencyInteger--pdp-list-price:nth-child(7)', first=True).text
     except:
-        list_price_integer = 'None'
-        list_price = 'None'
+        list_price_u = 'none'
+    
+    #Bloque para armar precio
+    if (list_price_u != 'none'):
+        try:
+            list_price_integer = int(f"{list_price_thousands}{list_price_units}{list_price_u}")
+            list_price = float(f"{list_price_integer}.{list_price_decimals}")
+        except:
+            list_price_integer = 'None'
+            list_price = 'None'
+    else:
+        try:
+            list_price_integer = int(f"{list_price_thousands}{list_price_units}")
+            list_price = float(f"{list_price_integer}.{list_price_decimals}")
+        except:
+            list_price_integer = 'None'
+            list_price = 'None'
     
     if r.html.find('div.vtex-button__label.flex.items-center.justify-center.h-100.ph6.w-100.border-box'):
         stock = 'In Stock'
@@ -157,12 +173,48 @@ def get_product(link):
         price_units = 'None'
         price_decimal = 'None'
     
-    try:
-        price_integer = int(f"{price_thousands}{price_units}")
-        price = float(f"{price_integer}.{price_decimal}")
+    #Chequeo si existe integer-price 7th child (precio > 999.999)
+    try: 
+        price_u = r.html.find('.vtex-product-price-1-x-currencyInteger.vtex-product-price-'
+            '1-x-currencyInteger--pdp-selling-price:nth-child(7)', first=True).text
     except:
-        price_integer = 'None'
+        price_u = 'none'
+    
+    #Bloque para armar precio
+    if (price_u != 'none'):
+        try:
+            price_integer = int(f"{price_thousands}{price_units}{price_u}")
+            price = float(f"{price_integer}.{price_decimal}")
+        except:
+            price_integer = 'None'
+            price = 'None'
+    else:
+        try:
+            price_integer = int(f"{price_thousands}{price_units}")
+            price = float(f"{price_integer}.{price_decimal}")
+        except:
+            price_integer = 'None'
+            price = 'None'
+        
+    #Bloque para precios menores a 1000
+    try:
+        if ((price_units == price_decimal)):
+            price = float(price)/100
+            price = int(price*100)/100
+    except:
         price = 'None'
+        
+    try:
+        if ((list_price_units == list_price_decimals)):
+            list_price = float(list_price)/100
+            list_price = int(list_price*100)/100
+    except:
+        list_price = 'None'
+    
+    #print(price_thousands)
+    #print(price_units)
+    #print(price_decimal)
+    #print(price_u)
         
     try:
         descripcion = r.html.find('body > div.render-container.render-route-store-product > '
@@ -205,5 +257,6 @@ with open(f'{subcategoria_ingresada}.csv', 'w', encoding='utf-8', newline='') as
     wr.writeheader()
     wr.writerows(results)
  
-print('End.')
-print(len(get_all_links(url, 1, pages)))
+n = len(get_all_links(url, 1, pages))
+print(f'{n} productos obtenidos')
+print('Fin.')

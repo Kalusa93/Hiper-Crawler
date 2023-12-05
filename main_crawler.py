@@ -44,19 +44,25 @@ categorias = {
 categorias_claves = list(categorias.keys())
 
 print(f"Las categorías existentes son {categorias_claves}")
-categoria_ingresada = input("Ingrese una categoría: ")
 
-if categoria_ingresada in categorias:
-    print(f"La categoría '{categoria_ingresada}' contiene las siguientes subcategorías: {categorias[categoria_ingresada]}")
-    subcategoria_ingresada = input("Ingrese una subcategoría: ")
-    if subcategoria_ingresada in categorias[categoria_ingresada]:
-        url = f'https://www.hiperlibertad.com.ar/{categoria_ingresada}/{subcategoria_ingresada}?sc={branch}&page='
-        pages = int(input("Ingrese la cantidad de páginas de la subcategoría: "))
-        print(url)
+while True:
+    categoria_ingresada = input("Ingrese una categoría: ")
+    
+    if categoria_ingresada in categorias:
+        print(f"La categoría '{categoria_ingresada}' contiene las siguientes subcategorías: {categorias[categoria_ingresada]}")
+        
+        while True:
+            subcategoria_ingresada = input("Ingrese una subcategoría: ")
+            if subcategoria_ingresada in categorias[categoria_ingresada]:
+                url = f'https://www.hiperlibertad.com.ar/{categoria_ingresada}/{subcategoria_ingresada}?sc={branch}&page='
+                pages = int(input("Ingrese la cantidad de páginas de la subcategoría: "))
+                print(url)
+                break
+            else:
+                print(f"Error: La subcategoría '{subcategoria_ingresada}' no existe en la lista. Inténtelo de nuevo.")
+        break
     else:
-        print(f"Error: La subcategoría '{subcategoria_ingresada}' no existe en la lista.")
-else:
-    print(f"Error: La categoría '{categoria_ingresada}' no existe en la lista.")
+        print(f"Error: La categoría '{categoria_ingresada}' no existe en la lista. Inténtelo de nuevo.")
 
 s = HTMLSession()
 def get_all_links(url, start_page, end_page):

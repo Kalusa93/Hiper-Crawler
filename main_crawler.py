@@ -121,7 +121,7 @@ def get_product(link):
             list_price = 'None'
     
     if r.html.find('div.vtex-button__label.flex.items-center.justify-center.h-100.ph6.w-100.border-box'):
-        stock = 'In Stock'
+        stock = 'In stock'
     else:
         stock = 'Out of stock'
     

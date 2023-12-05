@@ -51,13 +51,12 @@ if categoria_ingresada in categorias:
     subcategoria_ingresada = input("Ingrese una subcategoría: ")
     if subcategoria_ingresada in categorias[categoria_ingresada]:
         url = f'https://www.hiperlibertad.com.ar/{categoria_ingresada}/{subcategoria_ingresada}?sc={branch}&page='
+        pages = int(input("Ingrese la cantidad de páginas de la subcategoría: "))
         print(url)
     else:
         print(f"Error: La subcategoría '{subcategoria_ingresada}' no existe en la lista.")
 else:
     print(f"Error: La categoría '{categoria_ingresada}' no existe en la lista.")
-
-pages = int(input("Ingrese la cantidad de páginas de la subcategoría: "))
 
 s = HTMLSession()
 def get_all_links(url, start_page, end_page):
@@ -252,7 +251,7 @@ for link in links:
 with concurrent.futures.ThreadPoolExecutor() as executor:
     executor.map(get_product, links)
 
-with open(f'{subcategoria_ingresada}.csv', 'w', encoding='utf-8', newline='') as file:
+with open(f'{subcategoria_ingresada}_branch_id_{branch}.csv', 'w', encoding='utf-8', newline='') as file:
     wr = csv.DictWriter(file, fieldnames=results[0].keys(),)
     wr.writeheader()
     wr.writerows(results)

@@ -80,77 +80,8 @@ def get_all_links(url, start_page, end_page):
 def get_product(link):
     r = s.get(link)
     r.html.render(sleep=2)
-        
-    try:
-        list_price_thousands = r.html.find('body > div.render-container.render-route-store-product >'
-            'div > div.vtex-store__template.bg-base > div > div > div > div:nth-child(3) > div > '
-            'div:nth-child(2) > div > section > div > div > div > div > div > div > div.pr0.items-'
-            'stretch.vtex-flex-layout-0-x-stretchChildrenWidth.flex > div > div:nth-child(5) > div > '
-            'div > div:nth-child(1) > span > span > span > span:nth-child(3)', first=True).text
-        list_price_units = r.html.find('body > div.render-container.render-route-store-product > div >'
-            'div.vtex-store__template.bg-base > div > div > div > div:nth-child(3) > div > '
-            'div:nth-child(2) > div > section > div > div > div > div > div > div > div.pr0.items-'
-            'stretch.vtex-flex-layout-0-x-stretchChildrenWidth.flex > div > div:nth-child(5) > div > '
-            'div > div:nth-child(1) > span > span > span > span:nth-child(5)', first=True).text
-        list_price_decimals = r.html.find('body > div.render-container.render-route-store-product > '
-            'div > div.vtex-store__template.bg-base > div > div > div > div:nth-child(3) > div > '
-            'div:nth-child(2) > div > section > div > div > div > div > div > div > div.pr0.items-'
-            'stretch.vtex-flex-layout-0-x-stretchChildrenWidth.flex > div > div:nth-child(5) > div > '
-            'div > div:nth-child(1) > span > span > span > span.vtex-product-price-1-x-currencyFraction.'
-            'vtex-product-price-1-x-currencyFraction--pdp-list-price', first=True).text
-    except:
-        list_price_thousands = 'none'
-        list_price_units = 'none'
-        list_price_decimals = 'none'
-        
-    #Chequeo si existe integer-list-price 7th child (precio > 999.999)
-    try: 
-        list_price_u = r.html.find('.vtex-product-price-1-x-currencyInteger.'
-            'vtex-product-price-1-x-currencyInteger--pdp-list-price:nth-child(7)', first=True).text
-    except:
-        list_price_u = 'none'
     
-    #Bloque para armar precio
-    if (list_price_u != 'none'):
-        try:
-            list_price_integer = int(f"{list_price_thousands}{list_price_units}{list_price_u}")
-            list_price = float(f"{list_price_integer}.{list_price_decimals}")
-        except:
-            list_price_integer = 'None'
-            list_price = 'None'
-    else:
-        try:
-            list_price_integer = int(f"{list_price_thousands}{list_price_units}")
-            list_price = float(f"{list_price_integer}.{list_price_decimals}")
-        except:
-            list_price_integer = 'None'
-            list_price = 'None'
-    
-    if r.html.find('div.vtex-button__label.flex.items-center.justify-center.h-100.ph6.w-100.border-box'):
-        stock = 'In stock'
-    else:
-        stock = 'Out of stock'
-    
-    try:
-        title = r.html.find('body > div.render-container.render-route-store-product > '
-            'div > div.vtex-store__template.bg-base > div > div > div > '
-            'div:nth-child(3) > div > div:nth-child(2) > div > section > '
-            'div > div > div > div > div > div > div.pr0.items-stretch.'
-            'vtex-flex-layout-0-x-stretchChildrenWidth.flex > div > '
-            'div:nth-child(3) > h1 > span', first=True).text
-    except:
-        title = 'None'
-        
-    try:
-        brand = r.html.find('body > div.render-container.render-route-store-product > div > '
-            'div.vtex-store__template.bg-base > div > div > div > div:nth-child(3) > div > '
-            'div:nth-child(2) > div > section > div > div > div > div > div > div > div.pr0.'
-            'items-stretch.vtex-flex-layout-0-x-stretchChildrenWidth.flex > div > '
-            'div:nth-child(2) > div > div > div.pr6.items-stretch.vtex-flex-layout-0-x-'
-            'stretchChildrenWidth.flex > div > span', first=True).text
-    except:
-        brand = 'None'
-    
+    #Bloque price
     try:
         price_thousands = r.html.find('body > div.render-container.render-route-store-product > '
             'div > div.vtex-store__template.bg-base > div > div > div > '
@@ -208,13 +139,87 @@ def get_product(link):
             price = int(price*100)/100
     except:
         price = 'None'
+     
+    #Bloque_list_price        
+    try:
+        list_price_thousands = r.html.find('body > div.render-container.render-route-store-product >'
+            'div > div.vtex-store__template.bg-base > div > div > div > div:nth-child(3) > div > '
+            'div:nth-child(2) > div > section > div > div > div > div > div > div > div.pr0.items-'
+            'stretch.vtex-flex-layout-0-x-stretchChildrenWidth.flex > div > div:nth-child(5) > div > '
+            'div > div:nth-child(1) > span > span > span > span:nth-child(3)', first=True).text
+        list_price_units = r.html.find('body > div.render-container.render-route-store-product > div >'
+            'div.vtex-store__template.bg-base > div > div > div > div:nth-child(3) > div > '
+            'div:nth-child(2) > div > section > div > div > div > div > div > div > div.pr0.items-'
+            'stretch.vtex-flex-layout-0-x-stretchChildrenWidth.flex > div > div:nth-child(5) > div > '
+            'div > div:nth-child(1) > span > span > span > span:nth-child(5)', first=True).text
+        list_price_decimals = r.html.find('body > div.render-container.render-route-store-product > '
+            'div > div.vtex-store__template.bg-base > div > div > div > div:nth-child(3) > div > '
+            'div:nth-child(2) > div > section > div > div > div > div > div > div > div.pr0.items-'
+            'stretch.vtex-flex-layout-0-x-stretchChildrenWidth.flex > div > div:nth-child(5) > div > '
+            'div > div:nth-child(1) > span > span > span > span.vtex-product-price-1-x-currencyFraction.'
+            'vtex-product-price-1-x-currencyFraction--pdp-list-price', first=True).text
+    except:
+        list_price_thousands = 'none'
+        list_price_units = 'none'
+        list_price_decimals = 'none'
         
+    #Chequeo si existe integer-list-price 7th child (precio > 999.999)
+    try: 
+        list_price_u = r.html.find('.vtex-product-price-1-x-currencyInteger.'
+            'vtex-product-price-1-x-currencyInteger--pdp-list-price:nth-child(7)', first=True).text
+    except:
+        list_price_u = 'none'
+    
+    #Bloque para armar precio
+    if (list_price_u != 'none'):
+        try:
+            list_price_integer = int(f"{list_price_thousands}{list_price_units}{list_price_u}")
+            list_price = float(f"{list_price_integer}.{list_price_decimals}")
+        except:
+            list_price_integer = 'None'
+            list_price = 'None'
+    else:
+        try:
+            list_price_integer = int(f"{list_price_thousands}{list_price_units}")
+            list_price = float(f"{list_price_integer}.{list_price_decimals}")
+        except:
+            list_price_integer = 'None'
+            list_price = 'None'
+    
+    #Bloque para precios menores a 1000
     try:
         if ((list_price_units == list_price_decimals)):
             list_price = float(list_price)/100
             list_price = int(list_price*100)/100
     except:
         list_price = 'None'
+    
+    #Stock
+    if r.html.find('div.vtex-button__label.flex.items-center.justify-center.h-100.ph6.w-100.border-box'):
+        stock = 'In stock'
+    else:
+        stock = 'Out of stock'
+    
+    #Title
+    try:
+        title = r.html.find('body > div.render-container.render-route-store-product > '
+            'div > div.vtex-store__template.bg-base > div > div > div > '
+            'div:nth-child(3) > div > div:nth-child(2) > div > section > '
+            'div > div > div > div > div > div > div.pr0.items-stretch.'
+            'vtex-flex-layout-0-x-stretchChildrenWidth.flex > div > '
+            'div:nth-child(3) > h1 > span', first=True).text
+    except:
+        title = 'None'
+        
+    try:
+        brand = r.html.find('body > div.render-container.render-route-store-product > div > '
+            'div.vtex-store__template.bg-base > div > div > div > div:nth-child(3) > div > '
+            'div:nth-child(2) > div > section > div > div > div > div > div > div > div.pr0.'
+            'items-stretch.vtex-flex-layout-0-x-stretchChildrenWidth.flex > div > '
+            'div:nth-child(2) > div > div > div.pr6.items-stretch.vtex-flex-layout-0-x-'
+            'stretchChildrenWidth.flex > div > span', first=True).text
+    except:
+        brand = 'None'
     
     #print(price_thousands)
     #print(price_units)

@@ -19,10 +19,30 @@ def combinar_csv(archivos_csv, archivo_salida):
     print(f'Se ha combinado correctamente en "{archivo_salida}".')
 
 # Lista de archivos CSV que quieres combinar
-archivos_a_combinar = ['Aire libre y jardín/Aire_libre_y_jardin_branch_id_12.csv', 'Bebidas/bebidas_branch_id_12.csv']
+archivos_a_combinar = [
+    'Aire libre y jardín/Aire_libre_y_jardin_branch_id_12.csv',
+    'Almacén/Almacen_branch_id_12.csv',
+    'Bebés y Niños/Bebes_y_ninos_branch_id_12.csv',
+    'Bebidas/bebidas_branch_id_12.csv', 
+    'Carnes/Carnes_branch_id_12.csv',
+    'Congelados/Congelados_branch_id_12.csv', 
+    'Deportes/Deportes_branch_id_12.csv',
+    'Electrodomésticos/Electrodomésticos_branch_id_12.csv', 
+    'Hogar/Hogar_branch_id_12.csv',
+    'Lácteos/Lácteos_branch_id_12.csv',
+    'Limpieza/Limpieza_branch_id_12.csv',
+    'Mascotas/Mascotas_branch_id_12.csv',
+    'Papelería/libreria-y-papeleria_branch_id_12.csv',
+    'Pastas frescas y tapas/Pastas_y_tapas_branch_id_12.csv',
+    'Perfumería/Perfumeria_branch_id_12.csv',
+    'Quesos y Fiambres/Quesos_fiambres_branch_id_12.csv',
+    'Taeq/Taeq_branch_id_12.csv',
+    'Tecnología/Tecnología_branch_id_12.csv',
+    'Vehículos/Vehículos_branch_id_12.csv'
+    ]
 
 # Nombre del archivo de salida combinado
-archivo_salida_combinado = 'archivo_combinado.csv'
+archivo_salida_combinado = 'Hiper_Libertad_Sucursal_SDE_completo.csv'
 
 # Llamar a la función para combinar los archivos
 combinar_csv(archivos_a_combinar, archivo_salida_combinado)

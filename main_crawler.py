@@ -69,7 +69,7 @@ def get_all_links(url, start_page, end_page):
     all_links = []
     for x in range(start_page, end_page + 1):
         r = s.get(url + str(x))
-        r.html.render(sleep=2, timeout=100)
+        r.html.render(sleep=5, timeout=100)
         products = r.html.xpath('//*[@id="gallery-layout-container"]', first=True)
         links = products.absolute_links
         url_list = list(links)

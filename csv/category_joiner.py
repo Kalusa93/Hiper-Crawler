@@ -1,8 +1,6 @@
-import os
 import pandas as pd
 
 def combinar_csv(archivos_csv, archivo_salida):
-    # Lista para almacenar los DataFrames de cada archivo CSV
     dataframes = []
 
     # Leer cada archivo CSV y agregar su DataFrame a la lista
@@ -18,7 +16,6 @@ def combinar_csv(archivos_csv, archivo_salida):
     resultado.to_csv(archivo_salida, index=False)
     print(f'Se ha combinado correctamente en "{archivo_salida}".')
 
-# Lista de archivos CSV que quieres combinar
 archivos_a_combinar = [
     'Aire libre y jardín/Aire_libre_y_jardin_branch_id_12.csv',
     'Almacén/Almacen_branch_id_12.csv',
@@ -41,8 +38,6 @@ archivos_a_combinar = [
     'Vehículos/Vehículos_branch_id_12.csv'
     ]
 
-# Nombre del archivo de salida combinado
 archivo_salida_combinado = 'Hiper_Libertad_Sucursal_SDE_completo.csv'
 
-# Llamar a la función para combinar los archivos
 combinar_csv(archivos_a_combinar, archivo_salida_combinado)
